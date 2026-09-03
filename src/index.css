@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import "tailwindcss";
+@source "../src";
+
+@theme {
+    --font-sans: 'Roboto', sans-serif;
+    --font-mono: 'Roboto Mono', monospace;
+
+    --color-page: #0F1115;
+    --color-header: #171A21;
+    --color-surface: #1E222B;
+    --color-base: #FFFFFF;
+    --color-secondary: #9CA3AF;
+}
+
+body {
+    @apply bg-page text-base font-sans antialiased;
+}
