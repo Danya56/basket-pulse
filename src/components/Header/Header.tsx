@@ -14,44 +14,47 @@ export default function Header() {
     const handleOpenMobileMenu = (e: React.MouseEvent<HTMLButtonElement>) => setAnchorElMobileMenu(e.currentTarget)
 
     return (
-        <header className='bg-header h-16 px-4 flex justify-between items-center'>
-            <Logo width='40' height='40' fill='#CC522D' />
+        <header className='bg-header h-16'>
+            <div className='max-w-7xl px-4 mx-auto flex justify-between items-center'>
+                <Logo width='40' height='40' fill='#CC522D' />
 
-            <nav className='hidden md:flex justify-between items-center gap-10'>
-                <Link to="/orders" className='flex justify-center items-center border-b-3 border-transparent h-16 duration-300 hover:border-accent'>Заказы</Link>
-                <Link to="/analytics" className='flex justify-center items-center border-b-3 border-transparent h-16 duration-300 hover:border-accent'>Аналитика</Link>
-                <Link to="/warehouse" className='flex justify-center items-center border-b-3 border-transparent h-16 duration-300 hover:border-accent'>Склад</Link>
-            </nav>
+                <nav className='hidden md:flex justify-between items-center gap-10'>
+                    <Link to="/orders" className='flex justify-center items-center border-b-3 border-transparent h-16 duration-300 hover:border-accent'>Заказы</Link>
+                    <Link to="/analytics" className='flex justify-center items-center border-b-3 border-transparent h-16 duration-300 hover:border-accent'>Аналитика</Link>
+                    <Link to="/warehouse" className='flex justify-center items-center border-b-3 border-transparent h-16 duration-300 hover:border-accent'>Склад</Link>
+                </nav>
 
-            <div className='flex items-center'>
-                <IconButton
-                    onClick={handleOpenUserProfile}
-                    sx={{
-                        display: {
-                            xs: 'none',
-                            md: 'inline-flex'
-                        }
-                    }}
+                <div className='flex items-center'>
+                    <IconButton
+                        onClick={handleOpenUserProfile}
+                        sx={{
+                            display: {
+                                xs: 'none',
+                                md: 'inline-flex'
+                            }
+                        }}
+                    >
+                        <Avatar />
+                    </IconButton>
+
+                    <BurgerButton isOpen={Boolean(anchorElMobileMenu)} onClick={handleOpenMobileMenu} />
+                </div>
+
+
+
+                <Menu
+                    anchorEl={anchorElUserProfile}
+                    open={Boolean(anchorElUserProfile)}
+                    onClose={() => setAnchorElUserProfile(null)}
                 >
-                    <Avatar />
-                </IconButton>
+                    <MenuItem>Профиль</MenuItem>
+                    <MenuItem>Настройки</MenuItem>
+                    <MenuItem>Выйти</MenuItem>
+                </Menu>
 
-                <BurgerButton isOpen={Boolean(anchorElMobileMenu)} onClick={handleOpenMobileMenu} />
+                <MenuMobile anchorEl={anchorElMobileMenu} open={Boolean(anchorElMobileMenu)} onClose={() => setAnchorElMobileMenu(null)} />
             </div>
 
-
-
-            <Menu
-                anchorEl={anchorElUserProfile}
-                open={Boolean(anchorElUserProfile)}
-                onClose={() => setAnchorElUserProfile(null)}
-            >
-                <MenuItem>Профиль</MenuItem>
-                <MenuItem>Настройки</MenuItem>
-                <MenuItem>Выйти</MenuItem>
-            </Menu>
-
-            <MenuMobile anchorEl={anchorElMobileMenu} open={Boolean(anchorElMobileMenu)} onClose={() => setAnchorElMobileMenu(null)} />
         </header>
     )
 }
