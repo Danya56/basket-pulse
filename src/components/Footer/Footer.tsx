@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="w-full bg-header shrink-0 p-4 flex">
-        <div className="flex items-center justify-between flex-wrap w-full gap-4">
+    <footer className="bg-header py-4 shrink-0">
+        <div className="max-w-7xl px-4 mx-auto flex items-center justify-between flex-wrap w-full gap-4">
             <div>
                 <h3 className="font-mono mb-4">Статус подключения API маркетплейса:</h3>
                 <ul className="text-xs flex flex-col md:flex-row gap-3">
